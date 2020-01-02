@@ -4,4 +4,7 @@
     <string name="friend_request">Friend Requests</string>
     <string name="birthdays">Birthdays</string>
     <string name="tags">Tags</string>
+
+    <string name="comment_notification_channel_id" translatable="false">comment_channel</string>
+    <string name="comment_text">Wish you very Happy New Year!!</string>
 </resources>
