@@ -101,6 +101,30 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        tagsTogggleBtn.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+                if(isChecked){
+
+                    createChannel(getString(R.string.tags_notification_channel_id),
+                        getString(R.string.tags))
+
+                    val title = getString(R.string.tags)
+                    val message = getString(R.string.tag_text)
+
+                    notificationManager.sendNotification(
+                        title,
+                        message,
+                        getString(R.string.tags_notification_channel_id),
+                        applicationContext
+                    )
+                }
+                else{
+                    notificationManager.cancelNotification()
+                }
+            }
+
+        })
     }
 
     private fun createChannel(channelId : String, channelName : String){

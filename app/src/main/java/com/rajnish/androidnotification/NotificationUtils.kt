@@ -41,6 +41,12 @@ fun NotificationManager.sendNotification(
             ))
             notify(BIRTHDAY_NOTIFICATION_ID, builder.build())
         }
+        applicationContext.getString(R.string.tags_notification_channel_id) -> {
+            builder.setStyle(NotificationCompat.BigTextStyle()
+                .bigText(applicationContext.getString(R.string.tag_large_text))
+                .setBigContentTitle("NotificationCompat.Style"))
+            notify(TAGS_NOTIFICATION_ID, builder.build())
+        }
 
     }
 
