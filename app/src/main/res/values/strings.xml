@@ -6,6 +6,7 @@
     <string name="tags">Tags</string>
 
     <string name="comment_notification_channel_id" translatable="false">comment_channel</string>
-    <string name="friend_request_notification_channel_id" translatable="false">friend_request_channel</string>
     <string name="comment_text">Wish you very Happy New Year!!</string>
+    <string name="friend_request_notification_channel_id" translatable="false">friend_request_channel</string>
+    <string name="friend_request_text">Rajnish sent you request!!</string>
 </resources>

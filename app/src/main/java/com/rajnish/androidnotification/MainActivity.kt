@@ -6,7 +6,9 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.CompoundButton
+import android.widget.RadioGroup
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -47,6 +49,33 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        friendRequestTogggleBtn.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+                if(isChecked){
+
+                    //TODO(Create channel for Friend request)
+                    createChannel(getString(R.string.friend_request_notification_channel_id),
+                        getString(R.string.friend_request))
+
+                    val title = getString(R.string.friend_request)
+                    val message = getString(R.string.friend_request_text)
+
+                    //TODO(Send notification using extention function)
+                    notificationManager.sendNotification(
+                        title,
+                        message,
+                        getString(R.string.friend_request_notification_channel_id),
+                        applicationContext
+                    )
+                }
+                else{
+                    //TODO(Cancel notification using extention function)
+                    notificationManager.cancelNotification()
+                }
+            }
+
+        })
     }
 
     private fun createChannel(channelId : String, channelName : String){
@@ -65,4 +94,7 @@ class MainActivity : AppCompatActivity() {
             notificationManager.createNotificationChannel(notificationChannel)
         }
     }
+}
+object Constant {
+    const val TAG = "MainActivity"
 }
