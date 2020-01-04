@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.CompoundButton
 import android.widget.RadioGroup
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -92,6 +93,30 @@ class MainActivity : AppCompatActivity() {
                         title,
                         message,
                         getString(R.string.birthday_notification_channel_id),
+                        applicationContext
+                    )
+                }
+                else{
+                    notificationManager.cancelNotification()
+                }
+            }
+
+        })
+
+        tagsTogggleBtn.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+                if(isChecked){
+
+                    createChannel(getString(R.string.tags_notification_channel_id),
+                        getString(R.string.tags))
+
+                    val title = getString(R.string.tags)
+                    val message = getString(R.string.tag_text)
+
+                    notificationManager.sendNotification(
+                        title,
+                        message,
+                        getString(R.string.tags_notification_channel_id),
                         applicationContext
                     )
                 }

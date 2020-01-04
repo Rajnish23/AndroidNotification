@@ -11,4 +11,7 @@
     <string name="friend_request_text">Rajnish sent you request!!</string>
     <string name="birthday_notification_channel_id">birthday_channel</string>
     <string name="birthday_text">Today is Rajnish Birthday!!</string>
+    <string name="tags_notification_channel_id">tag_channel</string>
+    <string name="tag_text">Rajnish <b>Tagged</b> you in Post!!</string>
+    <string name="tag_large_text">NotificationCompat.BigStyle is helper class for generating large format notification that include a large text.\n If Platform does not provide large-format notification, this method has not effect. The use will see normal Notification view.</string>
 </resources>

@@ -24,6 +24,7 @@ fun NotificationManager.sendNotification(
         .setSmallIcon(R.mipmap.ic_launcher)
         .setContentTitle(title)
         .setContentText(message)
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
 
     when(channel){
         applicationContext.getString(R.string.comment_notification_channel_id) -> notify(
@@ -40,6 +41,12 @@ fun NotificationManager.sendNotification(
                 bitmap
             ))
             notify(BIRTHDAY_NOTIFICATION_ID, builder.build())
+        }
+        applicationContext.getString(R.string.tags_notification_channel_id) -> {
+            builder.setStyle(NotificationCompat.BigTextStyle()
+                .bigText(applicationContext.getString(R.string.tag_large_text))
+                .setBigContentTitle("NotificationCompat.Style"))
+            notify(TAGS_NOTIFICATION_ID, builder.build())
         }
 
     }
