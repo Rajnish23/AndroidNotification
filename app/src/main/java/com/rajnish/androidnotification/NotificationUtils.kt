@@ -2,12 +2,13 @@ package com.rajnish.androidnotification
 
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.BitmapFactory
 import androidx.core.app.NotificationCompat
 
 private val COMMENT_NOTIFICATION_ID = 100;
 private val FRIEND_REQUEST_NOTIFICATION_ID = 101;
 private val TAGS_NOTIFICATION_ID = 102;
-private val BirthDay_NOTIFICATION_ID = 103;
+private val BIRTHDAY_NOTIFICATION_ID = 103;
 fun NotificationManager.sendNotification(
     title: String,
     message: String,
@@ -30,6 +31,17 @@ fun NotificationManager.sendNotification(
         applicationContext.getString(R.string.friend_request_notification_channel_id) -> notify(
             FRIEND_REQUEST_NOTIFICATION_ID, builder.build()
         )
+        applicationContext.getString(R.string.birthday_notification_channel_id) -> {
+            val bitmap =
+                BitmapFactory.decodeResource(applicationContext.resources, R.drawable.birthday)
+            builder.setLargeIcon(bitmap)
+
+            builder.setStyle(NotificationCompat.BigPictureStyle().bigLargeIcon(null).bigPicture(
+                bitmap
+            ))
+            notify(BIRTHDAY_NOTIFICATION_ID, builder.build())
+        }
+
     }
 
 }
