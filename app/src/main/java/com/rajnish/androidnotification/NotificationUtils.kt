@@ -24,6 +24,7 @@ fun NotificationManager.sendNotification(
         .setSmallIcon(R.mipmap.ic_launcher)
         .setContentTitle(title)
         .setContentText(message)
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
 
     when(channel){
         applicationContext.getString(R.string.comment_notification_channel_id) -> notify(
