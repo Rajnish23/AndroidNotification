@@ -76,6 +76,31 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        birthdayTogggleBtn.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+                if(isChecked){
+                    //TODO (Create channel for Birthday)
+                    createChannel(getString(R.string.birthday_notification_channel_id),
+                        getString(R.string.birthdays))
+
+                    val title = getString(R.string.birthdays)
+                    val message = getString(R.string.birthday_text)
+
+                    //TODO (Send notification using extention function)
+                    notificationManager.sendNotification(
+                        title,
+                        message,
+                        getString(R.string.birthday_notification_channel_id),
+                        applicationContext
+                    )
+                }
+                else{
+                    notificationManager.cancelNotification()
+                }
+            }
+
+        })
     }
 
     private fun createChannel(channelId : String, channelName : String){

@@ -9,4 +9,6 @@
     <string name="comment_text">Wish you very Happy New Year!!</string>
     <string name="friend_request_notification_channel_id" translatable="false">friend_request_channel</string>
     <string name="friend_request_text">Rajnish sent you request!!</string>
+    <string name="birthday_notification_channel_id">birthday_channel</string>
+    <string name="birthday_text">Today is Rajnish Birthday!!</string>
 </resources>
